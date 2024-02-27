@@ -1,0 +1,58 @@
+name: Update Homebrew Formula
+
+on:
+  workflow_dispatch:
+  repository_dispatch:
+    types: [update-formula]
+
+jobs:
+  update-formula:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+
+      - name: Get the latest release info
+        id: release_info
+        run: |
+          import requests
+          import os
+
+          repo = "harleymckenzie/asc"
+          response = requests.get(f"https://api.github.com/repos/{repo}/releases/latest")
+          response.raise_for_status()
+          data = response.json()
+
+          download_url = data["tarball_url"]
+          tag_name = data["tag_name"]
+
+          os.system(f"echo ::set-output name=download_url::{download_url}")
+          os.system(f"echo ::set-output name=tag_name::{tag_name}")
+        shell: python
+
+      - name: Download the release archive
+        run: |
+          curl -L ${{ steps.release_info.outputs.download_url }} -o release.tar.gz
+
+      - name: Calculate the SHA256 sum
+        id: sha256sum
+        run: |
+          echo "SHA256_SUM=$(sha256sum release.tar.gz | awk '{print $1}')" >> $GITHUB_ENV
+
+      - name: Update the Homebrew formula
+        run: |
+          sed -i "s|url .*|url \"${{ steps.release_info.outputs.download_url }}\"|" Formula/asc.rb
+          sed -i "s|sha256 .*|sha256 \"${{ env.SHA256_SUM }}\"|" Formula/asc.rb
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add Formula/asc.rb
+          git commit -m "Update formula for ${{ steps.release_info.outputs.tag_name }}"
+          git push
