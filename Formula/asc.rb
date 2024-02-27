@@ -8,6 +8,7 @@ class Asc < Formula
   
     def install
       system "python3", *Language::Python.setup_install_args(prefix)
+      bin.install "asc.py" => "asc"
     end
   
     test do
