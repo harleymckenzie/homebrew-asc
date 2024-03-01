@@ -49,9 +49,11 @@ jobs:
 
       - name: Update the Homebrew formula
         run: |
-          sed -i "s|url .*|url \"${{ steps.release_info.outputs.download_url }}\"|" Formula/asc.rb
-          sed -i "s|sha256 .*|sha256 \"${{ env.SHA256_SUM }}\"|" Formula/asc.rb
-
+          # Update the main package URL
+          sed -i "/homepage \".*\"/!b;n;c\  url \"${{ steps.release_info.outputs.download_url }}\"" Formula/asc.rb
+          # Update the main package SHA256
+          sed -i "/url \".*\"/!b;n;c\  sha256 \"${{ env.SHA256_SUM }}\"" Formula/asc.rb
+        
       - name: Commit and push changes
         run: |
           git config --local user.email "action@github.com"
