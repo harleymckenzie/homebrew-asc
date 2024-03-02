@@ -3,8 +3,11 @@ class Asc < Formula
 
   desc "AWS Simple CLI (asc)"
   homepage "https://github.com/harleymckenzie/asc"
+  
+  # BEGIN RELEASE URL AND HASH
   url "https://api.github.com/repos/harleymckenzie/asc/tarball/v0.0.3"
   sha256 "548f7cd9fb6e9651d2cf770f358c1b839ed19fd000e2c089e4bc59118d0355a9"
+  # END RELEASE URL AND HASH
   
   depends_on "python@3.11"
 
