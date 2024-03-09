@@ -1,4 +1,6 @@
 class Assm < Formula
+  include Language::Python::Virtualenv
+
   desc "A helper script to connect to AWS instances using SSM Session Manager"
   homepage "https://github.com/harleymckenzie/assm"
 
