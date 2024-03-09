@@ -39,7 +39,7 @@ jobs:
           python -m pip install --upgrade pip
 
       - name: Update formula
-        run: python update-formula.py ${{ steps.project.outputs.project }}
+        run: python updateFormula.py ${{ steps.project.outputs.project }}
 
       - name: Commit and push changes
         run: |
