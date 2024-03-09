@@ -2,16 +2,24 @@ name: Update Homebrew Formula
 
 on:
   workflow_dispatch:
+    inputs:
+      project:
+        description: "The project to update"
+        required: true
   repository_dispatch:
     types: [update-formula]
 
 jobs:
   update-formula:
     runs-on: ubuntu-latest
+    if: github.event.client_payload.project
     permissions:
       contents: write
       pull-requests: write
     steps:
+      - name: Print project
+        run: "echo Project: ${{ github.event.client_payload.project }}"
+
       - name: Checkout
         uses: actions/checkout@v4
 
@@ -20,7 +28,7 @@ jobs:
           python -m pip install --upgrade pip
 
       - name: Update formula
-        run: python update-formula.py
+        run: python update-formula.py ${{ github.event.client_payload.project }}
 
       - name: Commit and push changes
         run: |

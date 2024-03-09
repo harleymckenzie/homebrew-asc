@@ -1,14 +1,20 @@
+#!/usr/bin/env python
+"""Update a Homebrew formula with the latest release info from GitHub"""
+
 import hashlib
 import requests
 import os
+import sys  # Import sys to read command-line arguments
 
 # Constants for your repository
-GITHUB_REPO = "harleymckenzie/asc"
-FORMULA_PATH = "Formula/asc.rb"
+REPOSITORIES = {
+    "asc": {"repo": "harleymckenzie/asc", "formula_path": "Formula/asc.rb"},
+    "assm": {"repo": "harleymckenzie/assm", "formula_path": "Formula/assm.rb"},
+}
 
 
-def get_latest_release_info():
-    url = f"https://api.github.com/repos/{GITHUB_REPO}/releases/latest"
+def get_latest_release_info(repo):
+    url = f"https://api.github.com/repos/{repo}/releases/latest"
     response = requests.get(url)
     response.raise_for_status()  # Raises an HTTPError if the status is 4xx, 5xx
     data = response.json()
@@ -22,8 +28,8 @@ def calculate_sha256(url):
     return sha256
 
 
-def update_formula(version, url, sha256):
-    with open(FORMULA_PATH, "r") as file:
+def update_formula(formula_path, version, url, sha256):
+    with open(formula_path, "r") as file:
         content = file.readlines()
 
     start_index, end_index = None, None
@@ -38,19 +44,25 @@ def update_formula(version, url, sha256):
         content[start_index] = f'  url "{url}"\n'
         content[end_index] = f'  sha256 "{sha256}"\n'
 
-    with open(FORMULA_PATH, "w") as file:
+    with open(formula_path, "w") as file:
         content = "".join(content)
         file.write(content)
 
 
 def main():
-    version, url = get_latest_release_info()
+    if len(sys.argv) < 2 or sys.argv[1] not in REPOSITORIES:
+        print("Usage: python update-formula.py [asc|assm]")
+        sys.exit(1)
+
+    project = sys.argv[1]
+    repo_info = REPOSITORIES[project]
+    version, url = get_latest_release_info(repo_info["repo"])
     sha256 = calculate_sha256(url)
-    update_formula(version, url, sha256)
-    print(f'Updated formula to version {version} with sha256 {sha256}')
-    
+    update_formula(repo_info["formula_path"], version, url, sha256)
+    print(f"Updated {project} formula to version {version} with sha256 {sha256}")
+
     # Write version to GitHub Actions environment file
-    with open(os.getenv('GITHUB_ENV'), 'a') as env_file:
+    with open(os.getenv("GITHUB_ENV"), "a") as env_file:
         env_file.write(f"VERSION={version}\n")
 
 
