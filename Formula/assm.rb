@@ -56,6 +56,7 @@ class Assm < Formula
   end
 
   test do
-    false
+    system "#{bin}/assm", "--help"
   end
 end
+
