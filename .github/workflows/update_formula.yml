@@ -12,13 +12,24 @@ on:
 jobs:
   update-formula:
     runs-on: ubuntu-latest
-    if: github.event.client_payload.project
     permissions:
       contents: write
       pull-requests: write
     steps:
-      - name: Print project
-        run: "echo Project: ${{ github.event.client_payload.project }}"
+      - name: Create project output
+        id: project
+        run: |
+          if [[ "${{ github.event.inputs.project }}" == "" ]]; then
+            echo "Using project from event payload"
+            project="${{ github.event.client_payload.project }}"
+            echo "Project: $project"
+            echo "project=$project" >> $GITHUB_OUTPUT
+          else
+            echo "Using project from input"
+            project="${{ github.event.inputs.project }}"
+            echo "Project: $project"
+            echo "project=$project" >> $GITHUB_OUTPUT
+          fi
 
       - name: Checkout
         uses: actions/checkout@v4
@@ -28,12 +39,14 @@ jobs:
           python -m pip install --upgrade pip
 
       - name: Update formula
-        run: python update-formula.py ${{ github.event.client_payload.project }}
+        run: python update-formula.py ${{ steps.project.outputs.project }}
 
       - name: Commit and push changes
         run: |
+          project=${{ steps.project.outputs.project }}
+          filename=Formula/$project.rb
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add Formula/asc.rb
-          git commit -m "Update Formula/asc.rb"
+          git add $filename
+          git commit -m "Update $project Formula"
           git push
