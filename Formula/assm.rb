@@ -5,8 +5,8 @@ class Assm < Formula
   homepage "https://github.com/harleymckenzie/assm"
 
   # BEGIN RELEASE URL AND HASH
-  url "https://api.github.com/repos/harleymckenzie/assm/tarball/v0.0.6"
-  sha256 "3f7f0bc7f7042b83cf00030b2f9f73f5eec50404c3448ce2fecd121983586fff"
+  url "https://api.github.com/repos/harleymckenzie/assm/tarball/v0.0.7"
+  sha256 "1cf0b5e6b4ab8bf4196d9ad3d4e97dddc32d8f73fc450123bebcc8ac18ecab6d"
   # END RELEASE URL AND HASH
   
   depends_on "python@3.9"
