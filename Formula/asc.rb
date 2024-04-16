@@ -9,7 +9,7 @@ class Asc < Formula
   sha256 "4a694a233aab22cd16984edfbd8c5192078b8ea5386dd0a78fd817a7ecaf5a1b"
   # END RELEASE URL AND HASH
   
-  depends_on "python-argcomplete@3.3"
+  depends_on "python-argcomplete"
   depends_on "python@3.11"
 
   resource "argcomplete" do
