@@ -9,7 +9,13 @@ class Asc < Formula
   sha256 "4a694a233aab22cd16984edfbd8c5192078b8ea5386dd0a78fd817a7ecaf5a1b"
   # END RELEASE URL AND HASH
   
+  depends_on "python-argcomplete@3.3"
   depends_on "python@3.11"
+
+  resource "argcomplete" do
+    url "https://files.pythonhosted.org/packages/79/51/fd6e293a64ab6f8ce1243cf3273ded7c51cbc33ef552dce3582b6a15d587/argcomplete-3.3.0.tar.gz"
+    sha256 "fd03ff4a5b9e6580569d34b273f741e85cd9e072f3feeeee3eba4891c70eda62"
+  end
 
   resource "boto3" do
     url "https://files.pythonhosted.org/packages/f8/e9/d16f4c5614fdb2a5d12af17dc0c0517fba999fa50daa5e2e55ab1b6375e6/boto3-1.34.54.tar.gz"
