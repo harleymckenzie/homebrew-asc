@@ -5,8 +5,8 @@ class Asc < Formula
   homepage "https://github.com/harleymckenzie/asc"
   
   # BEGIN RELEASE URL AND HASH
-  url "https://api.github.com/repos/harleymckenzie/asc/tarball/v0.0.4"
-  sha256 "f792df1856373bf728ec29ada4a2de3b2712c5990c17cb9fd10c059d08d7e5c0"
+  url "https://api.github.com/repos/harleymckenzie/asc/tarball/v0.0.5"
+  sha256 "4a694a233aab22cd16984edfbd8c5192078b8ea5386dd0a78fd817a7ecaf5a1b"
   # END RELEASE URL AND HASH
   
   depends_on "python@3.11"
