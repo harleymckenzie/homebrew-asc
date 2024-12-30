@@ -5,8 +5,11 @@ class AscGo < Formula
   sha256 "4987a22b4d004ba418c9fd1ae1c091dc3ec052dc8bf05dcc31473cabd336c908"
   license "MIT"
 
+  depends_on "go" => :build
+
   def install
-    system "go", "build", "-o", bin/"asc-go"
+    ENV["GOPATH"] = buildpath
+    system "go", "build", "-v", "-o", bin/"asc-go"
   end
 
   test do
