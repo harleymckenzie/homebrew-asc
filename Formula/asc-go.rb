@@ -7,6 +7,10 @@ class AscGo < Formula
 
   depends_on "go" => :build
 
+  head do
+    url "https://github.com/harleymckenzie/asc-go.git", branch: "main"
+  end
+
   def install
     ENV["GOPATH"] = buildpath
     system "go", "build", "-v", "-o", bin/"asc-go"
