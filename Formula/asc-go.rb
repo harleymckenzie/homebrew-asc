@@ -6,10 +6,10 @@ class AscGo < Formula
   license "MIT"
 
   def install
-    system "go", "build", "-o", bin/"asc"
+    system "go", "build", "-o", bin/"asc-go"
   end
 
   test do
-    system "asc", "help"
+    system "asc-go", "help"
   end
 end
