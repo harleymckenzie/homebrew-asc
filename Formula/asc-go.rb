@@ -13,10 +13,10 @@ class AscGo < Formula
 
   def install
     ENV["GOPATH"] = buildpath
-    system "go", "build", "-v", "-o", bin/"asc-go"
+    system "go", "build", "-v", "-o", bin/"asc"
   end
 
   test do
-    system "asc-go", "help"
+    system "asc", "help"
   end
 end
