@@ -1,8 +1,8 @@
 class AscGo < Formula
   desc "AWS Simple CLI (asc)"
   homepage "https://github.com/harleymckenzie/asc-go"
-  url "https://github.com/harleymckenzie/asc-go/archive/refs/tags/v1.0.0.tar.gz"
-  sha256 "4987a22b4d004ba418c9fd1ae1c091dc3ec052dc8bf05dcc31473cabd336c908"
+  url "https://github.com/harleymckenzie/asc-go/archive/refs/tags/v1.1.0.tar.gz"
+  sha256 "f26290ed0f9cf74174a09308a3d8e6211f1cf6cd7403f9037c155265d683099f"
   license "MIT"
 
   depends_on "go" => :build
