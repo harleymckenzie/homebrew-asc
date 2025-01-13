@@ -13,20 +13,18 @@ class AscGo < Formula
 
   if Hardware::CPU.intel?
     url "https://github.com/harleymckenzie/asc-go/releases/download/v1.1.1/asc-go_Darwin_x86_64.tar.gz"
-    sha256 "c34f4e58b67a0affd34638bda96e6437cf0e916472124b6f9d684c64d986f286"
+    sha256 "c5d3a236adbaa33758a04238bc8eb9a3a92cdfea6c1f12c5571946872b696b7e"
 
     def install
-      ENV["GOPATH"] = buildpath
-      system "go", "build", "-v", "-o", bin/"asc"
+      bin.install "asc"
     end
   end
   if Hardware::CPU.arm?
     url "https://github.com/harleymckenzie/asc-go/releases/download/v1.1.1/asc-go_Darwin_arm64.tar.gz"
-    sha256 "112e8d6aa8a109dbd3049d5b0972502463bb048e9beed6cf442cb439075fce3c"
+    sha256 "bf6b187ef39a8e4414c09e0253d6c02798a58383423c2fd20b656319330ff884"
 
     def install
-      ENV["GOPATH"] = buildpath
-      system "go", "build", "-v", "-o", bin/"asc"
+      bin.install "asc"
     end
   end
 
