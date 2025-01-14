@@ -7,35 +7,50 @@ class Asc < Formula
   homepage "https://github.com/harleymckenzie/asc"
   version "0.0.2"
   license "MIT"
-  bottle :unneeded
 
   on_macos do
     if Hardware::CPU.intel?
       url "https://github.com/harleymckenzie/asc/releases/download/v0.0.2/asc_Darwin_x86_64.tar.gz"
       sha256 "1fe25e24e4d58a5127b770eae1b204102dffe9c1c2c9321fc2461ebb35aebaa8"
+
+      def install
+        bin.install "asc"
+      end
     end
     if Hardware::CPU.arm?
       url "https://github.com/harleymckenzie/asc/releases/download/v0.0.2/asc_Darwin_arm64.tar.gz"
       sha256 "75077c49e528954d38327f39cbfbe5069eca97820b9e32e728a42aa68e3179af"
+
+      def install
+        bin.install "asc"
+      end
     end
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/harleymckenzie/asc/releases/download/v0.0.2/asc_Linux_x86_64.tar.gz"
-      sha256 "0de5e2b7581ca93f13f997c59a9e92e5e7074b9f481d9457eac10dad30bf52de"
+      if Hardware::CPU.is_64_bit?
+        url "https://github.com/harleymckenzie/asc/releases/download/v0.0.2/asc_Linux_x86_64.tar.gz"
+        sha256 "0de5e2b7581ca93f13f997c59a9e92e5e7074b9f481d9457eac10dad30bf52de"
+
+        def install
+          bin.install "asc"
+        end
+      end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/harleymckenzie/asc/releases/download/v0.0.2/asc_Linux_arm64.tar.gz"
-      sha256 "a226e8afb9414d3d6990870e7d174e79f039f32db38b9d6478175b0abff200f7"
-    end
-  end
+      if Hardware::CPU.is_64_bit?
+        url "https://github.com/harleymckenzie/asc/releases/download/v0.0.2/asc_Linux_arm64.tar.gz"
+        sha256 "a226e8afb9414d3d6990870e7d174e79f039f32db38b9d6478175b0abff200f7"
 
-  def install
-    bin.install "asc"
+        def install
+          bin.install "asc"
+        end
+      end
+    end
   end
 
   test do
-    system "#{bin}/asc", "help"
+    system "#{bin}/asc help"
   end
 end
