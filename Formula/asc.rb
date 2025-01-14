@@ -36,6 +36,6 @@ class Asc < Formula
   end
 
   test do
-    system "#{bin}/asc help"
+    system "#{bin}/asc", "help"
   end
 end
