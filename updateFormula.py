@@ -8,7 +8,7 @@ import requests
 
 # Constants for your repository
 REPOSITORIES = {
-    "asc": {"repo": "harleymckenzie/asc", "formula_path": "Formula/asc.rb"},
+    "asc-python": {"repo": "harleymckenzie/asc-python", "formula_path": "Formula/asc-python.rb"},
     "assm": {"repo": "harleymckenzie/assm", "formula_path": "Formula/assm.rb"},
 }
 
@@ -78,7 +78,7 @@ def main():
     Expects a command-line argument specifying which formula to update.
     """
     if len(sys.argv) < 2 or sys.argv[1] not in REPOSITORIES:
-        print("Usage: python update-formula.py [asc|assm]")
+        print("Usage: python update-formula.py [asc-python|assm]")
         sys.exit(1)
 
     project = sys.argv[1]
