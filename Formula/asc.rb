@@ -11,7 +11,7 @@ class Asc < Formula
   on_macos do
     if Hardware::CPU.intel?
       url "https://github.com/harleymckenzie/asc/releases/download/v0.0.2/asc_Darwin_x86_64.tar.gz"
-      sha256 "7e505feb5dba45f6b99edcd1b6e6ec7f1d689cfc36788420130d487ef39c9719"
+      sha256 "1fe25e24e4d58a5127b770eae1b204102dffe9c1c2c9321fc2461ebb35aebaa8"
 
       def install
         bin.install "asc"
@@ -19,7 +19,7 @@ class Asc < Formula
     end
     if Hardware::CPU.arm?
       url "https://github.com/harleymckenzie/asc/releases/download/v0.0.2/asc_Darwin_arm64.tar.gz"
-      sha256 "f5c7f44983a62f40994b5c985ba229517d8d227f310841f2a0e4596af9157f81"
+      sha256 "75077c49e528954d38327f39cbfbe5069eca97820b9e32e728a42aa68e3179af"
 
       def install
         bin.install "asc"
@@ -31,7 +31,7 @@ class Asc < Formula
     if Hardware::CPU.intel?
       if Hardware::CPU.is_64_bit?
         url "https://github.com/harleymckenzie/asc/releases/download/v0.0.2/asc_Linux_x86_64.tar.gz"
-        sha256 "f2d7a53dcae6591cc4d0f5b3488be71ff128355a083ba18d74582681958e8841"
+        sha256 "0de5e2b7581ca93f13f997c59a9e92e5e7074b9f481d9457eac10dad30bf52de"
 
         def install
           bin.install "asc"
@@ -41,7 +41,7 @@ class Asc < Formula
     if Hardware::CPU.arm?
       if Hardware::CPU.is_64_bit?
         url "https://github.com/harleymckenzie/asc/releases/download/v0.0.2/asc_Linux_arm64.tar.gz"
-        sha256 "83220159a33882320b38966c472224655c9c3812cf0ac98f3d8d833eae54dac3"
+        sha256 "a226e8afb9414d3d6990870e7d174e79f039f32db38b9d6478175b0abff200f7"
 
         def install
           bin.install "asc"
