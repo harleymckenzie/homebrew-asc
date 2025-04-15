@@ -5,21 +5,21 @@
 class Asc < Formula
   desc "AWS Simple CLI (ASC) - A simplified interface for AWS operations."
   homepage "https://github.com/harleymckenzie/asc"
-  version "0.0.5"
+  version "0.0.6"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/harleymckenzie/asc/releases/download/v0.0.5/asc_Darwin_x86_64.tar.gz"
-      sha256 "388cfe6a85384260fc94dd735f1e07678667e272268a2e3e3066b4946b5b02b2"
+      url "https://github.com/harleymckenzie/asc/releases/download/v0.0.6/asc_Darwin_x86_64.tar.gz"
+      sha256 "b97e3ce5bc273746c4a3fe0c7135cc46860d07744e75d6fc1180c62e52cfec62"
 
       def install
         bin.install "asc"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/harleymckenzie/asc/releases/download/v0.0.5/asc_Darwin_arm64.tar.gz"
-      sha256 "8ec6c656571576578479bed3347ddeb6c93e32a68d237114b5eeebb5878827ce"
+      url "https://github.com/harleymckenzie/asc/releases/download/v0.0.6/asc_Darwin_arm64.tar.gz"
+      sha256 "fca36ec467d4335adc535572c4dc4f660037c46d93d2c0ca4f4ba0305285edd7"
 
       def install
         bin.install "asc"
@@ -30,8 +30,8 @@ class Asc < Formula
   on_linux do
     if Hardware::CPU.intel?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/harleymckenzie/asc/releases/download/v0.0.5/asc_Linux_x86_64.tar.gz"
-        sha256 "5a9056cddc5a5ae28a0bdff256e28cef3d733e2ec0e82bb545ad821deb5ad257"
+        url "https://github.com/harleymckenzie/asc/releases/download/v0.0.6/asc_Linux_x86_64.tar.gz"
+        sha256 "d8b2c595af1bec782eec48fcd394ff3ae43c206be1dec165bd4c6e2e10e5199b"
 
         def install
           bin.install "asc"
@@ -40,8 +40,8 @@ class Asc < Formula
     end
     if Hardware::CPU.arm?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/harleymckenzie/asc/releases/download/v0.0.5/asc_Linux_arm64.tar.gz"
-        sha256 "8c4586b50b61d723a07f4e90212dfaa1edee8235a6e56f5c44e8be1b6490223e"
+        url "https://github.com/harleymckenzie/asc/releases/download/v0.0.6/asc_Linux_arm64.tar.gz"
+        sha256 "83a9213c83c9440f8dabfca18e0d4435fe5d466d290790fae84c0d0153b7fbfd"
 
         def install
           bin.install "asc"
