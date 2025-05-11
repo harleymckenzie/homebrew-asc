@@ -5,13 +5,13 @@
 class Asc < Formula
   desc "AWS Simple CLI (ASC) - A simplified interface for AWS operations."
   homepage "https://github.com/harleymckenzie/asc"
-  version "0.0.23"
+  version "0.0.24"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/harleymckenzie/asc/releases/download/v0.0.23/asc_Darwin_x86_64.tar.gz"
-      sha256 "08fce433ce3801a551addfc0b8785de6cb27da04ae743a353d2176d73e689723"
+      url "https://github.com/harleymckenzie/asc/releases/download/v0.0.24/asc_Darwin_x86_64.tar.gz"
+      sha256 "d28c0efdc82a51536fd99a1e22592ba69bec0d08fb2a79d6c82cf001023e7901"
 
       def install
         bin.install "asc"
@@ -19,8 +19,8 @@ class Asc < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/harleymckenzie/asc/releases/download/v0.0.23/asc_Darwin_arm64.tar.gz"
-      sha256 "c9d01ef5a6c0e866003df74e35e39425090a53417ceffade4c97040d080c872c"
+      url "https://github.com/harleymckenzie/asc/releases/download/v0.0.24/asc_Darwin_arm64.tar.gz"
+      sha256 "5a34a3070277691796f24c8e15ba97db34544246f551a7fcfb50c41f3f6a5384"
 
       def install
         bin.install "asc"
@@ -31,16 +31,16 @@ class Asc < Formula
 
   on_linux do
     if Hardware::CPU.intel? and Hardware::CPU.is_64_bit?
-      url "https://github.com/harleymckenzie/asc/releases/download/v0.0.23/asc_Linux_x86_64.tar.gz"
-      sha256 "d4f4d4fe5044f35b0472587d599cd378ba6863a872e77dc45e5d0c0f92ad885d"
+      url "https://github.com/harleymckenzie/asc/releases/download/v0.0.24/asc_Linux_x86_64.tar.gz"
+      sha256 "b74c6cde6bd47ffee4238d7b9e37614bcc777e6bb24f0b57b24e0c206723a4c0"
       def install
         bin.install "asc"
         generate_completions_from_executable(bin/"asc", "completion", shells: [:bash, :zsh, :fish])
       end
     end
     if Hardware::CPU.arm? and Hardware::CPU.is_64_bit?
-      url "https://github.com/harleymckenzie/asc/releases/download/v0.0.23/asc_Linux_arm64.tar.gz"
-      sha256 "c6dea4645bcaceea6dd6249823d2bb4067b134c775b1c093dc36367cb3303f1c"
+      url "https://github.com/harleymckenzie/asc/releases/download/v0.0.24/asc_Linux_arm64.tar.gz"
+      sha256 "55854f55260d0f46eb13f51ab5eef53d89e33883b1b2f7cc1b81abc1d3dd317c"
       def install
         bin.install "asc"
         generate_completions_from_executable(bin/"asc", "completion", shells: [:bash, :zsh, :fish])
