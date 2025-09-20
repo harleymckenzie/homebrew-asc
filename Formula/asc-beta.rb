@@ -5,13 +5,13 @@
 class AscBeta < Formula
   desc "AWS Simple CLI (ASC) - A simplified interface for AWS operations. (Beta channel)"
   homepage "https://github.com/harleymckenzie/asc"
-  version "0.0.38-beta.1"
+  version "0.0.38-beta.2"
   license "MIT"
   depends_on :macos
 
   if Hardware::CPU.intel?
-    url "https://github.com/harleymckenzie/asc/releases/download/v0.0.38-beta.1/asc_Darwin_x86_64.tar.gz"
-    sha256 "b0ffb35d6a3bd5dd44f116b2d90a21c9e7e9e9518c345b20d84e6823be4fbcc5"
+    url "https://github.com/harleymckenzie/asc/releases/download/v0.0.38-beta.2/asc_Darwin_x86_64.tar.gz"
+    sha256 "1a5479850fa0d71069cf0c7f3e15a687c10cc869af7853a91ccc2c22c0fae39c"
 
     def install
       bin.install "asc"
@@ -19,8 +19,8 @@ class AscBeta < Formula
     end
   end
   if Hardware::CPU.arm?
-    url "https://github.com/harleymckenzie/asc/releases/download/v0.0.38-beta.1/asc_Darwin_arm64.tar.gz"
-    sha256 "4081a4ec70fcf1dd5df11d5f1a758dafd53bbbf3e22780a89b273bea657491ae"
+    url "https://github.com/harleymckenzie/asc/releases/download/v0.0.38-beta.2/asc_Darwin_arm64.tar.gz"
+    sha256 "8ce32f7efdcd06d7ca94727e39692885c7107027e2f1d03532c6c04139f3ef11"
 
     def install
       bin.install "asc"
