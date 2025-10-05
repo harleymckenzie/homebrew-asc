@@ -2,10 +2,10 @@ class Assm < Formula
   include Language::Python::Virtualenv
 
   desc "A helper script to connect to AWS instances using SSM Session Manager"
-  homepage "https://github.com/harleymckenzie/assm"
+  homepage "https://github.com/harleymckenzie/assm-python"
 
   # BEGIN RELEASE URL AND HASH
-  url "https://api.github.com/repos/harleymckenzie/assm/tarball/v0.0.8"
+  url "https://api.github.com/repos/harleymckenzie/assm-python/tarball/v0.0.8"
   sha256 "60517a7e95afb0e7ce12df785d8b8579e5cecd7377028c8e430a5b43edcfc2c3"
   # END RELEASE URL AND HASH
   
