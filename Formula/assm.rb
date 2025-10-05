@@ -11,7 +11,7 @@ class Assm < Formula
 
   if Hardware::CPU.intel?
     url "https://github.com/harleymckenzie/assm/releases/download/v0.0.1/assm_Darwin_x86_64.tar.gz"
-    sha256 "4afd196e66a434648bf1bb6b6d84ce286e4a84b01fd45fd8409769cafab877fb"
+    sha256 "347fc9061883f87e7a84121929ea940632f30a4a6d875735c0fd382e8c815aa3"
 
     def install
       bin.install "assm"
@@ -20,7 +20,7 @@ class Assm < Formula
   end
   if Hardware::CPU.arm?
     url "https://github.com/harleymckenzie/assm/releases/download/v0.0.1/assm_Darwin_arm64.tar.gz"
-    sha256 "54b0de1fb351d7d25481aea155f29035bda87f69c9b2ae928936a4dccfafe578"
+    sha256 "d0794723f7ccb51b6505e26c5a3bee5c800ab419af4876d29c47ce5a68c9b22c"
 
     def install
       bin.install "assm"
@@ -29,6 +29,6 @@ class Assm < Formula
   end
 
   test do
-    system "#{bin}/assm help"
+    system "#{bin}/assm --help"
   end
 end
