@@ -11,7 +11,7 @@ class Asc < Formula
 
   if Hardware::CPU.intel?
     url "https://github.com/harleymckenzie/asc/releases/download/v0.0.40/asc_Darwin_x86_64.tar.gz"
-    sha256 "2651f70d5e2852f00a8a4d70b875321fdd6b34f81d5d3671a353d73533f30e58"
+    sha256 "87b2f184fd0d4521c6dae66dcb57770bf5b8f12f548f3d8cef724a68b9f37170"
 
     def install
       bin.install "asc"
@@ -20,7 +20,7 @@ class Asc < Formula
   end
   if Hardware::CPU.arm?
     url "https://github.com/harleymckenzie/asc/releases/download/v0.0.40/asc_Darwin_arm64.tar.gz"
-    sha256 "d4c90730bb4ba810a0b499c2e1806ffbae7c3afc4480bb7ef3f7babb53c83706"
+    sha256 "b2347c2804dec735c2ed9f74fe7f5308e216b3c8b63bf5961661c2e8c9dc2f13"
 
     def install
       bin.install "asc"
