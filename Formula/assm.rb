@@ -5,13 +5,13 @@
 class Assm < Formula
   desc "A CLI designed to provide a more simplified way to connect to EC2 instances using via AWS Systems Manager Sessions Manager."
   homepage "https://github.com/harleymckenzie/assm"
-  version "0.0.3"
+  version "0.0.4"
   license "MIT"
   depends_on :macos
 
   if Hardware::CPU.intel?
-    url "https://github.com/harleymckenzie/assm/releases/download/v0.0.3/assm_Darwin_x86_64.tar.gz"
-    sha256 "3e7c01ba44f7305271a27ce2d6ca339f8d2cff216d38e9ce16cc275df80d9cdb"
+    url "https://github.com/harleymckenzie/assm/releases/download/v0.0.4/assm_Darwin_x86_64.tar.gz"
+    sha256 "20dc29925b9ede3c157d75821b79dbd59486e661cf4e2d7126859ffe5cef94bd"
 
     def install
       bin.install "assm"
@@ -19,8 +19,8 @@ class Assm < Formula
     end
   end
   if Hardware::CPU.arm?
-    url "https://github.com/harleymckenzie/assm/releases/download/v0.0.3/assm_Darwin_arm64.tar.gz"
-    sha256 "eefee6516b73c2afc02fab1fd4e89e078000e698983046fa045d7e70b8d0c293"
+    url "https://github.com/harleymckenzie/assm/releases/download/v0.0.4/assm_Darwin_arm64.tar.gz"
+    sha256 "46861dbb69f6dc34aab7b55bd2b2e51d8e6ec0b9c43b9605ec2a7994e1a7dd58"
 
     def install
       bin.install "assm"
